@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Controles avançados</title>
+</head>
+
+<body>
+    <h1>Controles avançados</h1>
+    <form action="destino-dos-dados.html" method="POST">
+        <p>
+            <label for="leitura">Somente leitura:</label> <br>
+            <input type="text" id="leitura" name="leitura" value="Somente leiura" readonly>
+        </p>
+        <p>
+            <label for="desabilitado">Desabilitado:</label> <br>
+            <input type="text" id="desabilitado" name="desabilitado" value="conteúdo desabilitado" disabled>
+        </p>
+        <p>
+            <label for="temp">Texto temporário:</label> <br>
+            <input type="text" id="temp" name="temp" placeholder="Ex: 00.000.000-00">
+        </p>
+        <p>
+            <label for="restrito">Tamanho restrito:</label> <br>
+            <input type="text" id="restrito" name="restrito" size="4" maxlength="2" placeholder="Ex: SP">
+        </p>
+        <p>
+            <label for="email">E-mail(s):</label> <br>
+            <input type="mail" id="email" name="email" multiple>
+        </p>
+        <p>
+            <label for="pwd">Senha:</label> <br>
+            <input type="password" id="pwd" name="pwd">
+        </p>
+        <p>
+            <label for="buscar">Buscar:</label> <br>
+            <input type="search" id="buscar" name="buscar">
+        </p>
+        <p>
+            <label for="fone">Telefone:</label> <br>
+            <input type="tel" id="fone" name="fone">
+        </p>
+        <p>
+            <label for="site">Site:</label> <br>
+            <input type="url" id="site" name="site">
+        </p>
+        <p>
+            <label for="txt">Área de texto:</label> <br>
+            <textarea name="txt" id="txt" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <label for="opcoes">Multiplas opções:</label> <br>
+            <select name="opcao" id="opcao">
+                <option value="0">Português</option>
+                <option value="1" selected>Inglês</option>
+                <option value="2">Espanhol</option>
+            </select>
+        </p>
+        <p>
+            <fieldset>
+                <legend>Multiplas opções 2:</legend>
+                <input type="radio" id="portugues" name="idioma"> <label for="portugues">Português</label><br>
+                <input type="radio" id="ingles" name="idioma"> <label for="ingles">Inglês</label> <br>
+                <input type="radio" id="espanhol" name="idioma"> <label for="espanhol">Espanhol</label> <br>
+            </fieldset>
+        </p>
+        <p>
+            <fieldset>
+                <legend>Multiplas opções 3:</legend>
+                <input type="checkbox" id="portugues2" name="portugues2"> <label for="portugues2">Português</label> <br>
+                <input type="checkbox" id="ingles2" name="ingles2"> <label for="ingles2">Inglês</label> <br>
+                <input type="checkbox" id="espanhol2" name="espanhol2"> <label for="espanhol2">Espanhol</label> <br>
+            </fieldset>
+        </p>
+    </form>
+</body>
+
+</html>
