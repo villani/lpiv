@@ -1,0 +1,270 @@
+sqlite> .read export.sql
+sqlite> 
+sqlite> .tables
+candidatos
+sqlite> SELECT rowid, * FROM candidatos;
+1|Bolsonaro|PSL
+2|Temer|MDB
+sqlite> .headers on
+sqlite> .mode line
+sqlite> SELECT rowid, * FROM candidatos;
+  rowid = 1
+   nome = Bolsonaro
+partido = PSL
+
+  rowid = 2
+   nome = Temer
+partido = MDB
+sqlite> .quit
+> clear
+
+> ls
+candidatos.csv  export.sql  politica.sqlite
+> pwd
+/home/aluno/Documentos/lpiv/LPIV/semana11
+> 
+> php -a
+Interactive mode enabled
+
+php > print "Olá mundo!";
+Olá mundo!
+php > 
+php > $conexao = new PDO('sqlite:politica.sqlite');
+php > var_dump($conexao);
+object(PDO)#1 (0) {
+}
+php > $comando = $conexao->query('SELECT * FROM candidatos');
+php > $candidado = $comando->fetch();
+php > 
+php > var_dump($candidato);
+PHP Notice:  Undefined variable: candidato in php shell code on line 1
+NULL
+php > var_dump($candidado);
+array(4) {
+  ["nome"]=>
+  string(9) "Bolsonaro"
+  [0]=>
+  string(9) "Bolsonaro"
+  ["partido"]=>
+  string(3) "PSL"
+  [1]=>
+  string(3) "PSL"
+}
+php > print $candidado['nome'];
+Bolsonaro
+php > print $candidado['partido'];
+PSL
+php > $candidato2 = $comando->fetch();
+php > 
+php > $candidato2['nome'];
+php > var_dump($candidato2);
+array(4) {
+  ["nome"]=>
+  string(5) "Temer"
+  [0]=>
+  string(5) "Temer"
+  ["partido"]=>
+  string(3) "MDB"
+  [1]=>
+  string(3) "MDB"
+}
+php > print $candidato2['nome'];
+Temer
+php > print $conexao->exec('INSERT INTO candidatos VALUES ("Dilma", "PT")');
+1
+php > print $conexao->exec('INSERT INTO candidatos VALUES ("Dilma", "PT)');
+php > print $conexao->exec('INSERT INTO candidatos VALUES ("Dilma", "PT")');
+1
+php > $comando = $conexao->query('SELECT * FROM candidatos');
+php > $candidatos = $comando->fetchAll();
+php > 
+php > var_dump($candidatos);
+array(4) {
+  [0]=>
+  array(4) {
+    ["nome"]=>
+    string(9) "Bolsonaro"
+    [0]=>
+    string(9) "Bolsonaro"
+    ["partido"]=>
+    string(3) "PSL"
+    [1]=>
+    string(3) "PSL"
+  }
+  [1]=>
+  array(4) {
+    ["nome"]=>
+    string(5) "Temer"
+    [0]=>
+    string(5) "Temer"
+    ["partido"]=>
+    string(3) "MDB"
+    [1]=>
+    string(3) "MDB"
+  }
+  [2]=>
+  array(4) {
+    ["nome"]=>
+    string(5) "Dilma"
+    [0]=>
+    string(5) "Dilma"
+    ["partido"]=>
+    string(2) "PT"
+    [1]=>
+    string(2) "PT"
+  }
+  [3]=>
+  array(4) {
+    ["nome"]=>
+    string(5) "Dilma"
+    [0]=>
+    string(5) "Dilma"
+    ["partido"]=>
+    string(2) "PT"
+    [1]=>
+    string(2) "PT"
+  }
+}
+php > $candidato = $candidato[3];
+PHP Notice:  Undefined variable: candidato in php shell code on line 1
+php > $candidato = $candidatos[3];
+php > 
+php > print $candidato['nome'];
+Dilma
+php > $comando = $conexao->query('SELECT rowid,* FROM candidatos');
+php > $candidatos = $comando->fetchAll();
+php > var_dump($candidatos);
+array(4) {
+  [0]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "1"
+    [0]=>
+    string(1) "1"
+    ["nome"]=>
+    string(9) "Bolsonaro"
+    [1]=>
+    string(9) "Bolsonaro"
+    ["partido"]=>
+    string(3) "PSL"
+    [2]=>
+    string(3) "PSL"
+  }
+  [1]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "2"
+    [0]=>
+    string(1) "2"
+    ["nome"]=>
+    string(5) "Temer"
+    [1]=>
+    string(5) "Temer"
+    ["partido"]=>
+    string(3) "MDB"
+    [2]=>
+    string(3) "MDB"
+  }
+  [2]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "3"
+    [0]=>
+    string(1) "3"
+    ["nome"]=>
+    string(5) "Dilma"
+    [1]=>
+    string(5) "Dilma"
+    ["partido"]=>
+    string(2) "PT"
+    [2]=>
+    string(2) "PT"
+  }
+  [3]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "4"
+    [0]=>
+    string(1) "4"
+    ["nome"]=>
+    string(5) "Dilma"
+    [1]=>
+    string(5) "Dilma"
+    ["partido"]=>
+    string(2) "PT"
+    [2]=>
+    string(2) "PT"
+  }
+}
+php > $comando = $conexao->prepare('DELETE FROM candidatos WHERE rowid = :id');
+php > $comando->bindParam(':id', 4);
+PHP Warning:  Uncaught Error: Cannot pass parameter 2 by reference in php shell code:1
+Stack trace:
+#0 {main}
+  thrown in php shell code on line 1
+php > $comando->bindValue(':id', 4);
+php > 
+php > print $comando->execute();
+1
+php > $comando = $conexao->query('SELECT rowid,* FROM candidatos'); 
+php > $candidatos = $comando->fetchAll();
+php > var_dump($candidatos);
+array(3) {
+  [0]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "1"
+    [0]=>
+    string(1) "1"
+    ["nome"]=>
+    string(9) "Bolsonaro"
+    [1]=>
+    string(9) "Bolsonaro"
+    ["partido"]=>
+    string(3) "PSL"
+    [2]=>
+    string(3) "PSL"
+  }
+  [1]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "2"
+    [0]=>
+    string(1) "2"
+    ["nome"]=>
+    string(5) "Temer"
+    [1]=>
+    string(5) "Temer"
+    ["partido"]=>
+    string(3) "MDB"
+    [2]=>
+    string(3) "MDB"
+  }
+  [2]=>
+  array(6) {
+    ["rowid"]=>
+    string(1) "3"
+    [0]=>
+    string(1) "3"
+    ["nome"]=>
+    string(5) "Dilma"
+    [1]=>
+    string(5) "Dilma"
+    ["partido"]=>
+    string(2) "PT"
+    [2]=>
+    string(2) "PT"
+  }
+}
+php > exit
+> 
+> ls
+candidatos.csv  export.sql  politica.sqlite
+> sqlite3 politica.sqlite 
+SQLite version 3.22.0 2018-01-22 18:45:57
+Enter ".help" for usage hints.
+sqlite> SELECT rowid, * FROM candidatos;
+1|Bolsonaro|PSL
+2|Temer|MDB
+3|Dilma|PT
+sqlite> 
