@@ -1,0 +1,33 @@
+/* REGRAS PARA DESKTOP */
+@media screen and (min-width: 576px) {
+    body {
+        background-color: green;
+    }
+}
+
+/* REGRAS PARA CELULAR */
+@media screen and (max-width: 575px) {
+    h1 {
+        display: none;
+    }
+    
+    body {
+        background-color: yellow;
+    }
+}
+
+
+/* REGRAS PARA TAGS */
+h1, p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* REGRAS PARA IDs */
+#nome {
+    color: red;
+}
+
+/* REGRAS PARA CLASSES */
+.destaque-azul {
+    color: blue;
+}

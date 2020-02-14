@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Formulário</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Modelo de Formulário</h1>
+    <form action="destino.html">
+        <p>
+            <label for="nome">Nome:</label> <br>
+            <input type="text" name="nome" id="nome" placeholder="Insira o nome completo" required>
+        </p>
+        <p>
+            <label for="email">E-mail:</label> <br>
+            <input type="email" name="email" id="email" required>
+        </p>
+        <p>
+            <label for="foto">Foto:</label> <br>
+            <input type="file" name="foto" id="foto">
+        </p>
+        <p>
+            <label for="masculino">Gênero:</label> <br>
+            <input type="radio" name="genero" id="masculino" value="masculino"> Masculino <br>
+            <input type="radio" name="genero" id="feminino" value="feminino"> Feminino <br>
+        </p>
+        <p>
+            <label for="unidade">Qual das unidades você visitou:</label> <br>
+            <select name="unidade" id="unidade">
+                <option value="" selected>Selecione uma opção...</option>
+                <option value="praia-grande">Praia Grande</option>
+                <option value="santos">Santos</option>
+                <option value="sao-vicente">São Vicente</option>
+            </select>
+        </p>
+        <p class="destaque-azul">
+            <label for="revistas">Como conheceu o lugar:</label><br>
+            <input type="checkbox" name="conheceu[]" id="revistas"> Revistas <br>
+            <input type="checkbox" name="conheceu[]" id="site"> Site institucional <br>
+            <input type="checkbox" name="conheceu[]" id="social"> Redes sociais <br>
+        </p>
+        <p>
+            <label for="mais" class="destaque-azul">Conte um pouco mais sobre os pontos positivos:</label> <br>
+            <textarea name="mais" id="mais" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Gravar">
+        </p>
+    </form>
+</body>
+</html>
