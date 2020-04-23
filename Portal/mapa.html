@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Portal de Notícias</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center" style="background-color:rgb(200, 200, 200)">
+                <p>&nbsp;</p>
+                <h3><b>.:: CATEGORIAS ::.</b></h3>
+                
+                <p><a href="categoria-noticias.php" class="text-dark">Cultura</a></p>
+                <p><a href="categoria-noticias.php" class="text-dark">Economia</a></p>
+                <p><a href="categoria-noticias.php" class="text-dark">Entretenimento</a></p>
+                <p><a href="categoria-noticias.php" class="text-dark">Esportes</a></p>
+                <p><a href="categoria-noticias.php" class="text-dark">Política</a></p>
+                
+                <p>&nbsp;</p>    
+                <h3><b>.:: MEU ESPAÇO ::.</b></h3>
+                <p><a href="conta-entrar.php" class="text-dark">Entrar</a></p>
+                <p><a href="conta-verificar.php" class="text-dark">Criar conta</a></p>
+
+                <p>&nbsp;</p>    
+                <h3><b>.:: O PROJETO ::.</b></h3>
+                <p><a href="sobre.html" class="text-dark">Sobre</a></p>
+                <p><a href="mapa.html" class="text-dark">Mapa do site</a></p>
+                <p><a href="wireframes.html" class="text-dark"><i>Wireframes</i></a></p>
+            </div>
+            <div class="col-md-8">
+                <div class="container">
+
+                    <!-- TÍTULO DO CONTEÚDO -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1><a href="index.php" class="text-dark"><b>PORTAL DE NOTÍCIAS</b></a></h1>
+                            <h2>Mapa do site</h2>
+                            <hr>
+                        </div>
+                    </div>
+
+                    
+                    <!-- fim - TÍTULO DO CONTEÚDO -->
+
+                    <!-- CONTEÚDO PRINCIPAL -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <img src="imagens/mapa-do-site.png" alt="Mapa do site" class="img-fluid">
+                            <p>&nbsp;</p>
+
+                            <h3>Descrição das páginas</h3>
+                            <h4><a href="wireframes.html#index" id="index" title="Ver wireframe">Página inicial</a></h4>
+                            <p>A página inicial contém uma lista das notícias mais recentes publicadas. O menu do site é apresentado na lateral esquerda do site. Nele é possível navegar de maneira rápida por todas as categorias existentes de notícias. Por meio dele, também é possível acessar as páginas: notícias da categoria, criar uma conta, recuperar a senha ou se autenticar se já possuir uma. Se houver usuário autenticado, na seção do usuário deste menu são apresentadas as opções disponíveis de acordo com o nível de acesso do usuário.</p>
+                            <h4><a href="wireframes.html#categoria-noticias" id="categoria-noticias" title="Ver wireframe">Notícias da categoria</a></h4>
+                            <p>A página notícias da categoria contém uma lista de notícias associadas àquela categoria e organizadas por ordem de publicação mais recente.</p>
+                            <h4><a href="wireframes.html#noticia-ler" id="noticia-ler" title="Ver wireframe">Leitura de notícia</a></h4>
+                            <p>A página leitura de notícia exibe a notícia que tiver sido selecionada, os comentários e quantas pessoas avaliaram como relevante a notícia. Se o usuário estiver autenticado também poderá registrar um comentário ou marcar a notícia como relevante.</p>
+                            <h4><a href="wireframes.html#conta-entrar" id="conta-entrar" title="Ver wireframe">Entrar</a></h4>
+                            <p>A página entrar contém um formulário que permita o usuário se autenticar no site informando seu e-mail e senha. Por meio dessa página também é possível acessar a página para recuperação de senha (Criar conta).</p>
+                            <h4><a href="wireframes.html#conta-criar" id="conta-criar" title="Ver wireframe">Criar conta</a></h4>
+                            <p>A página criar conta contém o formulário que deverá ser usado por todos os usuários do site para recuperar a senha ou criar uma conta. Apenas o usuário administrador é que terá uma conta já criada. O campo e-mail deve ser o primeiro a ser preenchido. O sistema deverá verificar se já existe algum usuário com o e-mail informado. Se existir, um link para redefinição de senha deverá ser enviado por e-mail ao usuário. Caso contrário, o restante do formulário será exibido para que o usuário possa preencher os demais campos.</p>
+                            <h4><a href="wireframes.html#conta-visualizar" id="conta-visualizar" title="Ver wireframe">Dados pessoais</a></h4>
+                            <p>A página dados pessoais contém os dados fornecidos pelo usuário no momento de criar a conta, bem como os meios necessários para mantê-los.</p>
+                            <h4><a href="wireframes.html#categoria" id="categoria" title="Ver wireframe">Lista de (categorias | notícias | usuários)</a></h4>
+                            <p>Um recurso pode ser uma categoria, uma notícia ou um usuário. Esta página contém uma lista com todos os registros criados do recurso selecionado, bem como os meios necessários para mantê-los. Caso a lista seja de recursos do tipo usuário haverá a opção de promovê-lo ou despromovê-lo.</p>
+                            <h4><a href="wireframes.html#conta-editar" id="conta-editar" title="Ver wireframe">Edição de (dados pessoais | categoria | notícia)</a></h4>
+                            <p>Esta página contém um formulário para editar cada um dos campos pertinentes ao recurso selecionado.</p>
+
+                        </div>
+                    </div>
+
+                    <!-- fim - CONTEÚDO PRINCIPAL -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
