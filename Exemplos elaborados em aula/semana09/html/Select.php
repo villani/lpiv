@@ -2,33 +2,19 @@
 
 namespace html;
 
-class Select implements InputInterface
+class Select extends InputList implements InputInterface
 {
-    /** @var string $name Nome do elemento Select. */
-    private $name;
-
-    /** @var array $options Contém as opções da lista de seleção. */
-    private $options;
-
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
-
-    public function setOptions(array $options): void
-    {
-        $this->options = $options;
-    }
-
     public function render(): string
     {
-        $html = "<select name=\"\" id=\"\">";
+        $html = "\t<p>" . ucfirst($this->name) . ": <br>\n";
+        $html .= "\t<select name=\"$this->name\" id=\"$this->name\">\n";
 
         // Inserir as opções da lista.
         foreach ($this->options as $value => $label) {
-            $html .= "<option value=\"$value\">$label</option>";
+            $html .= "\t\t<option value=\"$value\">$label</option>\n";
         }
-        $html .= "</select>";
+        $html .= "\t</select>\n";
+        $html .= "\t</p>\n";
         return $html;
     }
 }

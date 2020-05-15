@@ -39,14 +39,14 @@ class Form
      */
     public function render(): string
     {
-        $html = "<form name=\"$this->name\" id=\"$this->name\">";
+        $html = "\n<form name=\"$this->name\" id=\"$this->name\">\n";
 
         // Inserindo o HTML dos inputs no formulário.
         foreach ($this->inputs as $input) {
             $html .= $input->render();
         }
 
-        $html .= "</form>";
+        $html .= "</form>\n";
 
         return $html;
     }
