@@ -1,0 +1,35 @@
+sqlite> -- CRIANDO UMA TABELA NO SQLITE
+sqlite> 
+sqlite> CREATE TABLE usuarios (
+   ...> id INTEGER PRIMARY KEY,
+   ...> nome TEXT,
+   ...> email TEXT,
+   ...> acesso INTEGER
+   ...> );
+sqlite> 
+sqlite> -- VER AS TABELAS CRIADAS 
+sqlite> .tables
+usuarios
+sqlite> 
+sqlite> -- INSERINDO REGISTROS NA TABELA
+sqlite> INSERT INTO usuarios(nome,email,acesso) VALUES
+   ...> ('Bolsonaro','bolso@ig.com.br',1),
+   ...> ('Temer','temer@bol.com.br',1),
+   ...> ('Dilma','dilma@sapo.pt',2);
+sqlite> ;
+sqlite> 
+sqlite> -- EXIBIR OS DADOS DA TABELA
+sqlite> SELECT * FROM usuarios;
+1|Bolsonaro|bolso@ig.com.br|1
+2|Temer|temer@bol.com.br|1
+3|Dilma|dilma@sapo.pt|2
+sqlite> 
+sqlite> -- VERIFICAR COMO A TABELA FOI CRIADA
+sqlite> .schema usuarios
+CREATE TABLE usuarios (
+id INTEGER PRIMARY KEY,
+nome TEXT,
+email TEXT,
+acesso INTEGER
+);
+sqlite> 
