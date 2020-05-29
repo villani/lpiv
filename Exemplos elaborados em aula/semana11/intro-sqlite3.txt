@@ -1,0 +1,317 @@
+$ # CRIANDO UMA BASE SQLITE
+$ sqlite3 portal.sqlite
+SQLite version 3.22.0 2018-01-22 18:45:57
+Enter ".help" for usage hints.
+sqlite> 
+sqlite> -- EXIBINDO AS TABELAS DA BASE
+sqlite> .tables
+sqlite> 
+sqlite> -- CRIANDO UMA TABELA NA BASE DE DADOS
+sqlite> CREATE TABLE usuarios (
+   ...> id INTEGER PRIMARY KEY,
+   ...> nome TEXT,
+   ...> senha TEXT,
+   ...> nivel INTEGER
+   ...> );
+sqlite> 
+sqlite> -- EXIBINDO AS TABELAS DA BASE
+sqlite> .tables
+usuarios
+sqlite> 
+sqlite> -- CONFERINDO A ESTRUTURA DE UMA TABELA
+sqlite> .schema usuarios
+CREATE TABLE usuarios (
+id INTEGER PRIMARY KEY,
+nome TEXT,
+senha TEXT,
+nivel INTEGER
+);
+sqlite> 
+sqlite> -- INSERINDO REGISTROS NA TABELA
+sqlite> INSERT INTO usuarios(nome,senha,nivel) VALUES 
+   ...> ('Bolsonaro','123',1),
+   ...> ('Temer','456',1),
+   ...> ('Dilma','789',2);
+sqlite> 
+sqlite> -- ADICIONANDO UMA COLUNA NA TABELA
+sqlite> ALTER TABLE usuarios ADD COLUMN email TEXT;
+sqlite> 
+sqlite> -- CONFERINDO A ESTRUTURA DA TABELA
+sqlite> .schema usuarios
+CREATE TABLE usuarios (
+id INTEGER PRIMARY KEY,
+nome TEXT,
+senha TEXT,
+nivel INTEGER
+, email TEXT);
+sqlite> 
+sqlite> -- EXIBINDO OS REGISTROS INSERIDOS EM UMA TABELA
+sqlite> SELECT * FROM usuarios;
+1|Bolsonaro|123|1|
+2|Temer|456|1|
+3|Dilma|789|2|
+sqlite> 
+sqlite> -- ALTERANDO MODOS DE EXIBIÇÃO
+sqlite> .mode line
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+   id = 1
+ nome = Bolsonaro
+senha = 123
+nivel = 1
+email = 
+
+   id = 2
+ nome = Temer
+senha = 456
+nivel = 1
+email = 
+
+   id = 3
+ nome = Dilma
+senha = 789
+nivel = 2
+email = 
+sqlite> -- EXIBINDO LISTAS DE COMANDOS NO SQLITE
+sqlite> .help
+.archive ...           Manage SQL archives: ".archive --help" for details
+.auth ON|OFF           Show authorizer callbacks
+.backup ?DB? FILE      Backup DB (default "main") to FILE
+.bail on|off           Stop after hitting an error.  Default OFF
+.binary on|off         Turn binary output on or off.  Default OFF
+.cd DIRECTORY          Change the working directory to DIRECTORY
+.changes on|off        Show number of rows changed by SQL
+.check GLOB            Fail if output since .testcase does not match
+.clone NEWDB           Clone data into NEWDB from the existing database
+.databases             List names and files of attached databases
+.dbinfo ?DB?           Show status information about the database
+.dump ?TABLE? ...      Dump the database in an SQL text format
+                         If TABLE specified, only dump tables matching
+                         LIKE pattern TABLE.
+.echo on|off           Turn command echo on or off
+.eqp on|off|full       Enable or disable automatic EXPLAIN QUERY PLAN
+.excel                 Display the output of next command in a spreadsheet
+.exit                  Exit this program
+.expert                EXPERIMENTAL. Suggest indexes for specified queries
+.fullschema ?--indent? Show schema and the content of sqlite_stat tables
+.headers on|off        Turn display of headers on or off
+.help                  Show this message
+.import FILE TABLE     Import data from FILE into TABLE
+.imposter INDEX TABLE  Create imposter table TABLE on index INDEX
+.indexes ?TABLE?       Show names of all indexes
+                         If TABLE specified, only show indexes for tables
+                         matching LIKE pattern TABLE.
+.limit ?LIMIT? ?VAL?   Display or change the value of an SQLITE_LIMIT
+.lint OPTIONS          Report potential schema issues. Options:
+                         fkey-indexes     Find missing foreign key indexes
+.load FILE ?ENTRY?     Load an extension library
+.log FILE|off          Turn logging on or off.  FILE can be stderr/stdout
+.mode MODE ?TABLE?     Set output mode where MODE is one of:
+                         ascii    Columns/rows delimited by 0x1F and 0x1E
+                         csv      Comma-separated values
+                         column   Left-aligned columns.  (See .width)
+                         html     HTML <table> code
+                         insert   SQL insert statements for TABLE
+                         line     One value per line
+                         list     Values delimited by "|"
+                         quote    Escape answers as for SQL
+                         tabs     Tab-separated values
+                         tcl      TCL list elements
+.nullvalue STRING      Use STRING in place of NULL values
+.once (-e|-x|FILE)     Output for the next SQL command only to FILE
+                         or invoke system text editor (-e) or spreadsheet (-x)
+                         on the output.
+.open ?OPTIONS? ?FILE? Close existing database and reopen FILE
+                         The --new option starts with an empty file
+.output ?FILE?         Send output to FILE or stdout
+.print STRING...       Print literal STRING
+.prompt MAIN CONTINUE  Replace the standard prompts
+.quit                  Exit this program
+.read FILENAME         Execute SQL in FILENAME
+.restore ?DB? FILE     Restore content of DB (default "main") from FILE
+.save FILE             Write in-memory database into FILE
+.scanstats on|off      Turn sqlite3_stmt_scanstatus() metrics on or off
+.schema ?PATTERN?      Show the CREATE statements matching PATTERN
+                          Add --indent for pretty-printing
+.selftest ?--init?     Run tests defined in the SELFTEST table
+.separator COL ?ROW?   Change the column separator and optionally the row
+                         separator for both the output mode and .import
+.session CMD ...       Create or control sessions
+.sha3sum ?OPTIONS...?  Compute a SHA3 hash of database content
+.shell CMD ARGS...     Run CMD ARGS... in a system shell
+.show                  Show the current values for various settings
+.stats ?on|off?        Show stats or turn stats on or off
+.system CMD ARGS...    Run CMD ARGS... in a system shell
+.tables ?TABLE?        List names of tables
+                         If TABLE specified, only list tables matching
+                         LIKE pattern TABLE.
+.testcase NAME         Begin redirecting output to 'testcase-out.txt'
+.timeout MS            Try opening locked tables for MS milliseconds
+.timer on|off          Turn SQL timer on or off
+.trace FILE|off        Output each SQL statement as it is run
+.vfsinfo ?AUX?         Information about the top-level VFS
+.vfslist               List all available VFSes
+.vfsname ?AUX?         Print the name of the VFS stack
+.width NUM1 NUM2 ...   Set column widths for "column" mode
+                         Negative values right-justify
+sqlite> 
+sqlite> -- ALTERANDO O MODO DE EXIBIÇÃO PARA html
+sqlite> .mode html
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+<TR><TD>1</TD>
+<TD>Bolsonaro</TD>
+<TD>123</TD>
+<TD>1</TD>
+<TD></TD>
+</TR>
+<TR><TD>2</TD>
+<TD>Temer</TD>
+<TD>456</TD>
+<TD>1</TD>
+<TD></TD>
+</TR>
+<TR><TD>3</TD>
+<TD>Dilma</TD>
+<TD>789</TD>
+<TD>2</TD>
+<TD></TD>
+</TR>
+sqlite> 
+sqlite> -- ALTERANDO O MODO DE EXIBIÇÃO PARA tabs
+sqlite> .mode tabs
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+1	Bolsonaro	123	1	
+2	Temer	456	1	
+3	Dilma	789	2	
+sqlite> 
+sqlite> .mode column
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+1           Bolsonaro   123         1                     
+2           Temer       456         1                     
+3           Dilma       789         2                     
+sqlite> 
+sqlite> -- HABILITANDO O CABEÇALHO DAS COLUNAS
+sqlite> .headers on
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+id          nome        senha       nivel       email     
+----------  ----------  ----------  ----------  ----------
+1           Bolsonaro   123         1                     
+2           Temer       456         1                     
+3           Dilma       789         2                     
+sqlite> 
+sqlite> -- ALTERANDO OS REGISTROS DE UMA TABELA
+sqlite> UPDATE usuarios SET email='bolso@gmail.com' WHERE id=1;
+sqlite> UPDATE usuarios SET email='temer@ig.com' WHERE id=2;
+sqlite> UPDATE usuarios SET email='dilma@sapo.pt' WHERE id=3;
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+id          nome        senha       nivel       email          
+----------  ----------  ----------  ----------  ---------------
+1           Bolsonaro   123         1           bolso@gmail.com
+2           Temer       456         1           temer@ig.com   
+3           Dilma       789         2           dilma@sapo.pt  
+sqlite> 
+sqlite> -- REMOVENDO REGISTROS DA TABELAS
+sqlite> DELETE FROM usuarios WHERE id=1;
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+id          nome        senha       nivel       email       
+----------  ----------  ----------  ----------  ------------
+2           Temer       456         1           temer@ig.com
+3           Dilma       789         2           dilma@sapo.p
+sqlite> 
+sqlite> -- RELACIONANDO TABELAS COM OUTRAS TABELAS
+sqlite> CREATE TABLE categorias (
+   ...> id INTEGER PRIMARY KEY,
+   ...> usuario_id INTEGER,
+   ...> nome TEXT,
+   ...> FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+   ...> );
+sqlite> 
+sqlite> -- GERANDO SCRIPT DE EXPORTAÇÃO DO BANCO
+sqlite> .dump
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE usuarios (
+id INTEGER PRIMARY KEY,
+nome TEXT,
+senha TEXT,
+nivel INTEGER
+, email TEXT);
+INSERT INTO usuarios VALUES(2,'Temer','456',1,'temer@ig.com');
+INSERT INTO usuarios VALUES(3,'Dilma','789',2,'dilma@sapo.pt');
+CREATE TABLE categorias (
+id INTEGER PRIMARY KEY,
+usuario_id INTEGER,
+nome TEXT,
+FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+COMMIT;
+sqlite> 
+sqlite> -- TESTANDO RESTRIÇÃO DE CHAVE ESTRANGEIRA
+sqlite> INSERT INTO categorias(usuario_id,nome) VALUES 
+   ...> (1,'Política');
+sqlite> 
+sqlite> PRAGMA foreign_key=ON;
+sqlite> -- .^. HABILITANDO RESTRIÇÃO DE CHAVE ESTRANGEIRA
+sqlite> 
+sqlite> -- TESTANDO RESTRIÇÃO DE CHAVE ESTRANGEIRA
+sqlite> INSERT INTO categorias(usuario_id,nome) VALUES 
+   ...> (1,'Economia');
+sqlite> 
+sqlite> SELECT * FROM categorias;
+id          usuario_id  nome      
+----------  ----------  ----------
+1           1           Política  
+2           1           Economia  
+sqlite> 
+sqlite> SELECT * FROM usuarios;
+id          nome        senha       nivel       email       
+----------  ----------  ----------  ----------  ------------
+2           Temer       456         1           temer@ig.com
+3           Dilma       789         2           dilma@sapo.p
+sqlite> 
+sqlite> .dump
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE usuarios (
+id INTEGER PRIMARY KEY,
+nome TEXT,
+senha TEXT,
+nivel INTEGER
+, email TEXT);
+INSERT INTO usuarios VALUES(2,'Temer','456',1,'temer@ig.com');
+INSERT INTO usuarios VALUES(3,'Dilma','789',2,'dilma@sapo.pt');
+CREATE TABLE categorias (
+id INTEGER PRIMARY KEY,
+usuario_id INTEGER,
+nome TEXT,
+FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+INSERT INTO categorias VALUES(1,1,'Política');
+INSERT INTO categorias VALUES(2,1,'Economia');
+COMMIT;
+sqlite> 
+sqlite> PRAGMA foreign_key;
+sqlite> PRAGMA foreign_key=ON;
+sqlite> PRAGMA foreign_key;
+sqlite> PRAGMA foreign_key=1;
+sqlite> PRAGMA foreign_key;
+sqlite> PRAGMA foreign_keys=ON;
+sqlite> PRAGMA foreign_key;
+sqlite> PRAGMA foreign_keys;
+foreign_keys
+------------
+1           
+sqlite> 
+sqlite> INSERT INTO categorias(usuario_id,nome) VALUES 
+   ...> (1,'Religião');
+Error: FOREIGN KEY constraint failed
+sqlite> 
+sqlite> .tables
+categorias  usuarios  
+sqlite> 
