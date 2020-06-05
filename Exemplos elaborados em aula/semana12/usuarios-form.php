@@ -59,6 +59,7 @@ if (is_null($id)) {
                     <p>
                         Nome: <br>
                         <input type="text" name="nome" value="<?= $nome; ?>" class="form-control">
+                        <input type="hidden" name="id" value="<?= $id; ?>">
                     </p>
                     <p>
                         E-mail: <br>

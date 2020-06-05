@@ -28,7 +28,7 @@ $usuarios = $comando->fetchAll();
 
                 <h1>LISTANDO USUÁRIOS</h1> 
 
-                <p><a href="usuarios-form.php">Inserir usuário</a></p>
+                <p><a href="usuarios-form.php" class="btn btn-success">Inserir usuário</a></p>
 
                 <table class="table table-striped">
                     <tr>
@@ -41,9 +41,11 @@ $usuarios = $comando->fetchAll();
                         <td><?= $usuario['id']; ?></td>
                         <td><?= $usuario['nome']; ?></td>
                         <td style="text-align: center;">
-                            <a href="usuarios-form.php?id=<?= $usuario['id']; ?>">Editar</a>
+                            <a href="usuarios-form.php?id=<?= $usuario['id']; ?>" class="btn btn-primary">Editar</a>
                         </td>
-                        <td style="text-align: center;">Excluir</td>
+                        <td style="text-align: center;">
+                            <a href="usuarios-excluir.php?id=<?= $usuario['id']; ?>" class="btn btn-danger">Excluir</a> 
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </table>       
