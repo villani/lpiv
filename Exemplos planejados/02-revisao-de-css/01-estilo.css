@@ -1,0 +1,12 @@
+body {
+	background-color: green;
+	font-family: arial, tahoma;
+}
+
+.alert {
+	color: red;
+}
+
+#email {
+	border-style: dotted;
+}
